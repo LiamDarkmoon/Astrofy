@@ -7,5 +7,10 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), svelte(), react()],
-  output: 'server'
+  output: 'hybrid',
+  adapter: vercel({
+    maxDuration: 10,
+    edgeMiddleware: true,
+    imageService: true
+  }),
 });
