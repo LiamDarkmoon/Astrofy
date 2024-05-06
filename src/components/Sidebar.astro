@@ -1,0 +1,31 @@
+---
+import Home from "../icons/home.astro";
+import Search from "../icons/search.astro";
+import SideMenuItem from "./SideMenuItem.astro";
+import SidebarHeader from "./SidebarHeader.astro";
+import SidebarPlaylists from "./SidebarPlaylists.astro";
+import SidebarSearch from "./SidebarSearch";
+import SidebarTags from "./SidebarTags.astro";
+---
+
+<nav class="flex flex-col flex-1 gap-2 overflow-x-hidden">
+    <div class="rounded-lg bg-zinc-900 p-2">
+        <ul>
+            <SideMenuItem href="/">
+                <Home/>
+                Inicio
+            </SideMenuItem>
+            <SideMenuItem href="/#">
+                <Search/>
+                Buscar
+            </SideMenuItem>
+        </ul>
+    </div>
+
+    <div class="rounded-lg bg-zinc-900 h-full flex-1 gap-2 overflow-hidden">
+        <SidebarHeader/>
+        <SidebarTags/>
+        <SidebarSearch/>
+        <SidebarPlaylists/>
+    </div>
+</nav>

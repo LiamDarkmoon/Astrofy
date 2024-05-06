@@ -1,0 +1,28 @@
+---
+import { playlists } from "@/lib/data";
+---
+
+<section class="last-played-cards relative z-10 min-h-12 mb-4">
+    { playlists.slice(0, 3).map((playlist) => (
+        <article class="playlist-item flex relative overflow-hidden items-center gap-2 rounded-md bg-zinc-400/20 hover:bg-zinc-400/40 transition duration-300">
+            <picture class="h-12 w-12 flex-none">
+            <img
+                src={ playlist.cover }
+                alt={`cover of ${playlist.title}`}
+                class="object-cover w-full h-full rounded-[4px]"
+            />
+            </picture>
+            <h4 class="text-sm font-bold">
+            { playlist.title }
+            </h4>
+        </article>
+    ))}
+</section>
+
+<style>
+    .last-played-cards{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 8px
+    }
+</style>

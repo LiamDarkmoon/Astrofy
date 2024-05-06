@@ -1,0 +1,20 @@
+---
+import Library from "@/icons/library.astro";
+import ArrowR from "@/icons/arrow-r.astro";
+import Add from "@/icons/add.astro";
+---
+
+<header class="px-4 py-2 text-zinc-400 hover:text-zinc-100 font-bold transition duration-300">
+    <nav class="flex gap-2 items-center">
+        <button class="px-2 py-1 flex items-center gap-2 min-h-10 me-auto">
+            <Library/>
+            Tu biblioteca
+        </button>
+        <button class="p-2">
+            <Add/>
+        </button>
+        <button class="p-2">
+            <ArrowR/>
+        </button>
+    </nav>
+</header>
