@@ -22,10 +22,12 @@ import SidebarTags from "./SidebarTags.astro";
         </ul>
     </div>
 
-    <div class="rounded-lg bg-zinc-900 h-full flex-1 gap-2 overflow-y-auto no-scrollbar">
-        <SidebarHeader/>
-        <SidebarTags/>
-        <div class="overflow-y-auto">
+    <div class="relative rounded-lg bg-zinc-900 h-full flex-1 gap-2 overflow-y-auto no-scrollbar">
+        <div class="sticky top-0 z-10 bg-zinc-900">
+            <SidebarHeader/>
+            <SidebarTags/>
+        </div>
+        <div class="overflow-y-auto no-scrollbar pb-2">
             <SidebarSearch/>
             <SidebarPlaylists/>
         </div>

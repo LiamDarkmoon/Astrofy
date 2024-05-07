@@ -25,23 +25,24 @@ export default function VolumeControl( { audio } : {audio: React.RefObject<HTMLA
     const duration = audio.current?.duration ?? 0
 
     return (
-        <div className="flex gap-2.5 text-xs pt-2">
-            <button className="opacity-70 hover:opacity-100 transition">
-            </button>
-            <span className="opacity-50 w-10 text-right">{ formatTime(currentTime) }</span>
-            <Slider
-                value={[currentTime]}
-                max={ audio?.current?.duration ?? 0 }
-                min={0}
-                className='w-[442px]'
-                onValueChange={(value) => {
-                    const [newTime] = value
-                    if(audio.current){
-                        audio.current.currentTime = newTime
-                    }
-                }}
-            />
-            <span className="opacity-50 w-10">{ isNaN(duration) ? '-:--' : formatTime(duration) }</span>
+        <div className="flex flex-col w-[40%] max-w-[722px] gap-2.5 text-xs pt-2">
+
+            <div className="flex gap-2.5">
+                <span className="opacity-50 w-10 text-right">{ formatTime(currentTime) }</span>
+                <Slider
+                    value={[currentTime]}
+                    max={ audio?.current?.duration ?? 0 }
+                    min={0}
+                    className='w-[442px]'
+                    onValueChange={(value) => {
+                        const [newTime] = value
+                        if(audio.current){
+                            audio.current.currentTime = newTime
+                        }
+                    }}
+                />
+                <span className="opacity-50 w-10">{ isNaN(duration) ? '-:--' : formatTime(duration) }</span>
+            </div>
         </div>
     )
 }

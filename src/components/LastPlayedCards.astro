@@ -1,6 +1,7 @@
 ---
 import { playlists } from "@/lib/data";
 import CardPlayButton from "./CardPlayButton";
+import Equalicer from "./Equalicer";
 ---
 
 <section class="last-played-cards relative z-10 min-h-12 mb-4">
@@ -8,24 +9,25 @@ import CardPlayButton from "./CardPlayButton";
         <article class="playlist-item group flex relative overflow-hidden items-center gap-2 rounded-md bg-zinc-400/20 hover:bg-zinc-400/40 transition duration-300">
             <a 
                 href={`/playlist/${playlist.id}`}
-                class="playlist-item flex relative p-2 overflow-hidden items-center gap-3 rounded-md hover:bg-zinc-800"
+                class="relative w-full flex overflow-hidden items-center gap-3 rounded-md"
             >
                 <picture class="h-12 w-12 flex-none">
                     <img
                         src={ playlist.cover }
                         alt={`cover of ${playlist.title}`}
-                        class="object-cover w-full h-full rounded-[4px]"
+                        class="object-cover w-full h-full rounded-tl-[4px] rounden-bl-[4px]"
                     />
                 </picture>
                 <h4 class="text-sm w-2/4 font-bold break-words">
                     { playlist.title }
                 </h4>
+            </a>
                 <div 
                     class="absolute right-[8px] transition-all duration-500 opacity-0 group-hover:opacity-100"
                 >
                     <CardPlayButton id={ playlist.id } client:visible/>
                 </div>
-            </a>
+            {/* <Equalicer playlist={ playlist } client:load/> */}
         </article>
     ))}
 </section>

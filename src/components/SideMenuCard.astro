@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { playlist } = Astro.props
+const selected = Astro.url.pathname === `/playlist/${playlist.id}`
 const { id, cover, title, artists, color } = playlist
 
 const artistsString = artists.join(', ')
@@ -14,7 +15,7 @@ const artistsString = artists.join(', ')
 
 <a 
     href={`/playlist/${id}`}
-    class="playlist-item flex relative p-2 overflow-hidden items-center gap-3 rounded-md hover:bg-zinc-800"
+    class={ selected ? "playlist-item flex relative p-2 overflow-hidden items-center gap-3 rounded-md bg-zinc-700/60" : "playlist-item flex relative p-2 overflow-hidden items-center gap-3 rounded-md hover:bg-zinc-800" }
 >
     <picture class="h-12 w-12 flex-none">
         <img

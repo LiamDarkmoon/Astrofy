@@ -17,7 +17,7 @@ export default function VolumeControl() {
     }
 
     return (
-        <div className="flex items-center gap-2">
+        <div className="flex w-[30%] min-w-[180px] items-center gap-2">
             <button onClick={handleVolume} className="opacity-70 hover:opacity-100 transition">
                 <Volume/>
             </button>
