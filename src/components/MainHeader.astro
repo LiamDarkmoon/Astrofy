@@ -1,10 +1,14 @@
 ---
+import { allPlaylists } from '@/lib/data';
 import HeaderButtons from "./HeaderButtons";
 import HeaderNavigation from "./HeaderNavigation";
 
+const { id } = Astro.params
+const playlist = allPlaylists.find(playlist => playlist.id === id);
 ---
 
-<header class="relative h-[64px] flex w-full items-center justify-between gap-2  px-5 py-4 bg-zinc-700">
+<header style={ id ? {backgroundColor: playlist?.color.accent} : null} 
+    class="sticky z-30 top-0 h-[64px] flex w-full items-center justify-between gap-2  px-5 py-4 bg-zinc-500">
     <HeaderNavigation/>
     <HeaderButtons/>
     <!-- <nav class="fixed  border-tl-lg border-tr-lg">

@@ -8,7 +8,7 @@ import SidebarSearch from "./SidebarSearch";
 import SidebarTags from "./SidebarTags.astro";
 ---
 
-<nav class="flex flex-col flex-1 gap-2 overflow-x-hidden">
+<nav class="flex flex-col flex-1 gap-2 overflow-hidden">
     <div class="rounded-lg bg-zinc-900 p-2">
         <ul>
             <SideMenuItem href="/">
@@ -22,10 +22,12 @@ import SidebarTags from "./SidebarTags.astro";
         </ul>
     </div>
 
-    <div class="rounded-lg bg-zinc-900 h-full flex-1 gap-2 overflow-hidden">
+    <div class="rounded-lg bg-zinc-900 h-full flex-1 gap-2 overflow-y-auto no-scrollbar">
         <SidebarHeader/>
         <SidebarTags/>
-        <SidebarSearch/>
-        <SidebarPlaylists/>
+        <div class="overflow-y-auto">
+            <SidebarSearch/>
+            <SidebarPlaylists/>
+        </div>
     </div>
 </nav>

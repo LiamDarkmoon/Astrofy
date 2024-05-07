@@ -27,7 +27,7 @@ const { title } = Astro.props;
 				<Sidebar/>
 			</aside>
 
-			<main class="[grid-area:main] relative rounded-lg bg-zinc-900 overflow-hidden overflow-y-auto w-full">
+			<main class="[grid-area:main] relative rounded-lg bg-zinc-900 overflow-hidden overflow-y-auto w-full no-scrollbar">
         <MainHeader/>
 				<slot/>
 			</main>
@@ -43,7 +43,7 @@ const { title } = Astro.props;
 	#app {
 		display: grid;
 		grid-template-areas: 
-		"aside main lasplayed"
+		"aside main main"
 		"player player player"
 		;
 		grid-template-columns: 420px 1fr;
@@ -52,11 +52,22 @@ const { title } = Astro.props;
 </style>
 
 <style is:global>
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 	html {
 		font-family: "CircularStd", system-ui, sans-serif;
-        background: #010101;
-        color: white;
+    background: #010101;
+    color: white; 
 	}
+
+  .no-scrollbar{
+      -webkit-scrollbar-width: none;
+      scrollbar-width: none;
+  }
 	@font-face {
         font-family: "CircularStd";
         src: url("/fonts/CircularStd-Medium.woff2") format("woff2");
@@ -96,4 +107,5 @@ const { title } = Astro.props;
         font-style: normal;
         font-display: swap;
       }
+      
 </style>

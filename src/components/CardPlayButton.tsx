@@ -1,7 +1,7 @@
 import { Pause, Play } from './Player.tsx'
 import { usePlayerStore } from '@/store/playerStore.ts'
 
-export default function CardPlayButton({ id, size = 'small' } : { id: string | undefined, size?: 'small' | 'large' }) {
+export default function CardPlayButton({ id, size = 'small' } : { id: string | undefined, size?: 'small' | 'medium' | 'large' }) {
     const { isPlaying, setIsPlaying, currentMusic, setCurrentMusic } = usePlayerStore(state => state)
 
     const isPlayingPlaylist = isPlaying && currentMusic?.playlist?.id === id
@@ -23,7 +23,7 @@ export default function CardPlayButton({ id, size = 'small' } : { id: string | u
     }
 
     
-    const iconsClassName = size === 'small' ? 'w-10 h-10' : 'w-14 h-14'
+    const iconsClassName = size === 'small' ? 'w-8 h-8' : size === 'medium' ? 'w-10 h-10' : 'w-14 h-14'
 
     return(
         <button 

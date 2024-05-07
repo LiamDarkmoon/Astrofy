@@ -1,7 +1,7 @@
 ---
 import type { Playlist } from '@/lib/data'
-/* import { usePlayerStore } from '@/store/playerStore.ts'
- */
+import SideVolume from '@/icons/SideVolume'
+import SideCardTitle from './SideCardTitle'
 interface Props {
     playlist: Playlist
 }
@@ -10,8 +10,6 @@ const { playlist } = Astro.props
 const { id, cover, title, artists, color } = playlist
 
 const artistsString = artists.join(', ')
-/* const { isPlaying, setIsPlaying, currentMusic, setCurrentMusic } = usePlayerStore(state => state)
-const isPlayingPlaylist = isPlaying && currentMusic?.playlist?.id === id */
 ---
 
 <a 
@@ -26,13 +24,6 @@ const isPlayingPlaylist = isPlaying && currentMusic?.playlist?.id === id */
         />
     </picture>
 
-    <div class="flex flex-col flex-auto truncate">
-        <h4 class={"text-white font-medium"}>
-            { title }
-        </h4>
-
-        <span class="text-sm text-zinc-400">
-            { artistsString }
-        </span>
-    </div>
+    <SideCardTitle playlist={ playlist } client:load/>
+    <SideVolume id={ id } client:load/>
 </a>

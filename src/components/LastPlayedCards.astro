@@ -1,20 +1,31 @@
 ---
 import { playlists } from "@/lib/data";
+import CardPlayButton from "./CardPlayButton";
 ---
 
 <section class="last-played-cards relative z-10 min-h-12 mb-4">
-    { playlists.slice(0, 3).map((playlist) => (
-        <article class="playlist-item flex relative overflow-hidden items-center gap-2 rounded-md bg-zinc-400/20 hover:bg-zinc-400/40 transition duration-300">
-            <picture class="h-12 w-12 flex-none">
-            <img
-                src={ playlist.cover }
-                alt={`cover of ${playlist.title}`}
-                class="object-cover w-full h-full rounded-[4px]"
-            />
-            </picture>
-            <h4 class="text-sm font-bold">
-            { playlist.title }
-            </h4>
+    { playlists.slice(0, 4).map((playlist) => (
+        <article class="playlist-item group flex relative overflow-hidden items-center gap-2 rounded-md bg-zinc-400/20 hover:bg-zinc-400/40 transition duration-300">
+            <a 
+                href={`/playlist/${playlist.id}`}
+                class="playlist-item flex relative p-2 overflow-hidden items-center gap-3 rounded-md hover:bg-zinc-800"
+            >
+                <picture class="h-12 w-12 flex-none">
+                    <img
+                        src={ playlist.cover }
+                        alt={`cover of ${playlist.title}`}
+                        class="object-cover w-full h-full rounded-[4px]"
+                    />
+                </picture>
+                <h4 class="text-sm w-2/4 font-bold break-words">
+                    { playlist.title }
+                </h4>
+                <div 
+                    class="absolute right-[8px] transition-all duration-500 opacity-0 group-hover:opacity-100"
+                >
+                    <CardPlayButton id={ playlist.id } client:visible/>
+                </div>
+            </a>
         </article>
     ))}
 </section>
