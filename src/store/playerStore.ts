@@ -5,6 +5,7 @@ import type { Playlist, Song } from '@/lib/data'
 interface PlayerStore {
     isPlaying: boolean,
     volume: number,
+    cardNumber: number
     currentMusic: {
         playlist: Playlist | null
         song: Song | null,
@@ -12,6 +13,7 @@ interface PlayerStore {
     },
     setIsPlaying: (isPlaying: boolean) => void,
     setVolume: (volume: number) => void,
+    setCardNumber: (cardNumber: number) => void,
     setCurrentMusic: (currentMusic: {
         playlist: Playlist
         song: Song | null,
@@ -22,6 +24,7 @@ interface PlayerStore {
 export const usePlayerStore = create<PlayerStore>((set) => ({
     isPlaying: false,
     volume: 0.5,
+    cardNumber: 5,
     currentMusic: {
         playlist: null,
         song: null,
@@ -29,5 +32,6 @@ export const usePlayerStore = create<PlayerStore>((set) => ({
     },
     setIsPlaying: (isPlaying) => set({ isPlaying }),
     setVolume: (volume) => set({ volume }),
+    setCardNumber: (cardNumber) => set({ cardNumber }),
     setCurrentMusic: (currentMusic) => set({ currentMusic }),
 }))

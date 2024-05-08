@@ -2,10 +2,12 @@
 import { playlists } from '@/lib/data';
 import PlaylistItemCard from '@/components/PlaylistItemCard.astro';
 import Greetings from '@/components/Greetings.svelte';
+import WidthObserver from './WidthObserver';
 ---
 
 <section  class="relative z-10 min-h-[200px]">
     <Greetings/>
+    <WidthObserver client:visible/>
     <div id="cardGroup" class="cards-group">
         { playlists.map(playlist => <PlaylistItemCard playlist={playlist} />) }
     </div>
@@ -13,6 +15,7 @@ import Greetings from '@/components/Greetings.svelte';
 
 <style>
     .cards-group {
+        --card-number: calc(80vw / 200px);
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
         grid-template-rows: 1fr
