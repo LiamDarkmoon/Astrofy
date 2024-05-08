@@ -4,9 +4,9 @@ import PlaylistItemCard from '@/components/PlaylistItemCard.astro';
 import Greetings from '@/components/Greetings.svelte';
 ---
 
-<section class="relative z-10 min-h-[200px]">
+<section  class="relative z-10 min-h-[200px]">
     <Greetings/>
-    <div class="cards-group">
+    <div id="cardGroup" class="cards-group">
         { playlists.map(playlist => <PlaylistItemCard playlist={playlist} />) }
     </div>
 </section>
@@ -15,5 +15,6 @@ import Greetings from '@/components/Greetings.svelte';
     .cards-group {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        grid-template-rows: 1fr
     }
 </style>

@@ -3,6 +3,7 @@ import { useRef, useEffect } from 'react'
 import CurrentSong from './CurrentSong';
 import VolumeControl from './VolumeControl';
 import PlayerControls from './PlayerControls';
+import PlayerSideControls from './PlayerSideControls';
 
 export const Play = ({ className } : { className?: string }) => {
     return (
@@ -57,24 +58,12 @@ export default function Player() {
     }
 
     return (
-        <div className="flex justify-between w-full z-50">
-            <div className="flex items-center gap-2 w-[200px]">
-                <CurrentSong image={currentMusic.song?.image} title={currentMusic.song?.title} artists={currentMusic.song?.artists.join(', ')}/>
-            </div>
+        <div className="flex justify-between items-center h-[72px] w-full z-50">
+            <CurrentSong image={currentMusic.song?.image} title={currentMusic.song?.title} artists={currentMusic.song?.artists.join(', ')}/>
 
-            <div className="grid place-content-center gap-4 flex-1">
-                <div className="flex flex-col items-center">
-                    <button 
-                        className="p-[5px] rounded-full bg-white"
-                        onClick={handleClick}
-                    >
-                        { isPlaying ? <Pause/> : <Play/> }
-                    </button>
-                    <PlayerControls audio={audioRef}/>
-                </div>
-            </div>
+            <PlayerControls audio={audioRef}/>
 
-            <VolumeControl/>
+            <PlayerSideControls/>
             <audio ref={audioRef} />
         </div>
     )

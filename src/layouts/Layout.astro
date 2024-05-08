@@ -3,6 +3,7 @@ import Sidebar from '../components/Sidebar.astro';
 import MainHeader from '@/components/MainHeader.astro';
 import Player from '../components/Player.tsx';
 import { ViewTransitions } from 'astro:transitions';
+import Reziser from '@/components/Reziser';
 interface Props {
 	title: string;
 }
@@ -23,8 +24,9 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<div id="app" class="relative h-screen p-2 gap-2">
-			<aside class="[grid-area:aside] flex flex-col h-full min-h-0">
+			<aside class="[grid-area:aside] flex h-full min-h-0">
 				<Sidebar/>
+        <Reziser/>
 			</aside>
 
 			<main class="[grid-area:main] relative rounded-lg bg-zinc-900 overflow-hidden overflow-y-auto h-full w-full no-scrollbar">
@@ -32,7 +34,7 @@ const { title } = Astro.props;
 				<slot/>
 			</main>
 
-			<footer class="[grid-area:player] h-[72px]">
+			<footer class="[grid-area:player]">
         <Player client:load transition:name="media-player" transition:persist/>
       </footer>
 		</div>
@@ -46,7 +48,7 @@ const { title } = Astro.props;
 		"aside main main"
 		"player player player"
 		;
-		grid-template-columns: 420px 1fr;
+		grid-template-columns: auto 1fr;
 		grid-template-rows: 1fr auto;
 	}
 </style>
@@ -67,6 +69,12 @@ const { title } = Astro.props;
   .no-scrollbar{
       -webkit-scrollbar-width: none;
       scrollbar-width: none;
+  }
+
+  .cards-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        grid-template-rows: 1fr
   }
 	@font-face {
         font-family: "CircularStd";

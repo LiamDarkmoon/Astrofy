@@ -1,11 +1,10 @@
-import React from 'react'
 
 export default function CurrentSong({ image, title, artists } : { image: string | undefined, title: string | undefined, artists: string | undefined  }) {
   return (
     <div
         className="shadow-lg flex items-center relative overflow-hidden gap-4 ps-2 min-w-[180px] w-[30%]"
     >
-        <picture className="aspect-square w-[55px] h-auto flex-none">
+        <picture className="aspect-square w-14 h-auto flex-none">
             {
                 image &&
                 <img

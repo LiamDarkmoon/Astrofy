@@ -2,6 +2,7 @@ import { usePlayerStore } from "@/store/playerStore";
 import { Slider } from './Slider';
 import Volume from "@/icons/volume";
 import { useRef } from "react";
+import Button from "./Button";
 
 export default function VolumeControl() {
     const { volume, setVolume } = usePlayerStore()
@@ -17,15 +18,15 @@ export default function VolumeControl() {
     }
 
     return (
-        <div className="flex w-[30%] min-w-[180px] items-center gap-2">
-            <button onClick={handleVolume} className="opacity-70 hover:opacity-100 transition">
+        <div className="flex items-center me-2">
+            <Button onClick={handleVolume} className="opacity-70 hover:opacity-100 transition">
                 <Volume/>
-            </button>
+            </Button>
                 <Slider
                 value={[volume * 100]}
                 max={100}
                 min={0}
-                className='w-[95px]'
+                className='w-[93px] h-[12px]'
                 onValueChange={(value) => {
                     const [newVolume] = value
                     const volumeValue = newVolume / 100
