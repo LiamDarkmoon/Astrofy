@@ -7,10 +7,22 @@ const { id } = Astro.params
 const playlist = allPlaylists.find(playlist => playlist.id === id);
 ---
 
-<header style={ id ? {backgroundColor: playlist?.color.accent} : null} 
+<header style={ id ? { backgroundColor: playlist?.color.accent} : null } 
     class="sticky z-30 top-0 h-[64px] flex w-full items-center justify-between gap-2  px-5 py-4 bg-zinc-500">
-    <HeaderNavigation/>
-    <HeaderButtons/>
-    <!-- <nav class="fixed  border-tl-lg border-tr-lg">
-    </nav> -->
+    <HeaderNavigation id={ id } client:load/>
+    <HeaderButtons client:load/>
 </header>
+
+<style>
+    @keyframes ajust-Header {
+        to {
+            background-filter:blur(5px)
+        }
+    }
+
+	header {
+        animation-timeline: scroll();
+        animation-range: 50px 250px;
+        animation: ajust-Header linear both;
+	}
+</style>

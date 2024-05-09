@@ -8,7 +8,7 @@ const Menu = () => (
 export default function SidebarSearch() {
     return(
         <div className="flex items-center justify-between px-3">
-            <button className="min-h-8 rounded-full p-2 hover:bg-zinc-800 hover:text-white transition duration-300">
+            <button className="min-h-8 rounded-full ms-1 p-2 hover:bg-zinc-800 hover:text-white transition duration-300">
                 <Search/>
             </button>
             <button className="min-h-8 px-3 py-1 flex items-center gap-2 text-sm text-[#B3B3B3] hover:scale-105 hover:text-white transition duration-300">

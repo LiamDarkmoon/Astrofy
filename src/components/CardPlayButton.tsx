@@ -11,14 +11,15 @@ export default function CardPlayButton({ id, size = 'small' } : { id: string | u
             setIsPlaying(false)
             return
         }
-        
-        fetch (`/api/get-info-playlist.json?id=${id}`)
-            .then(res => res.json())
-            .then(data => {
-                const { songs, playlist } = data
-                
-                setIsPlaying(!isPlaying)
-                setCurrentMusic({ playlist, song: songs[0], songs })
+        const playlistURL = `/api/get-info-playlist.json?id=${id}`
+        fetch (playlistURL)
+        .then(res => res.json())
+        .then(data => {
+            const { songs, playlist } = data
+            
+            setIsPlaying(!isPlaying)
+            setCurrentMusic({ playlist, song: songs[0], songs })
+            window.localStorage.setItem('lastMusic', JSON.stringify({ playlist, song: songs[0], songs }))
             })
     }
 
@@ -27,7 +28,7 @@ export default function CardPlayButton({ id, size = 'small' } : { id: string | u
 
     return(
         <button 
-            className={`grid place-content-center rounded-full bg-green-600 hover:bg-green-500 hover:scale-105 transition p-2 ${iconsClassName}`}
+            className={`grid place-content-center rounded-full bg-star hover:bg-green-500 hover:scale-105 transition p-2 ${iconsClassName}`}
             onClick={ handleClick }
         >
           { isPlayingPlaylist ? <Pause/> : <Play/>}

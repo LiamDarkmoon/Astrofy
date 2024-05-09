@@ -18,7 +18,7 @@ const ArrowDown = () => (
 
 export default function HeaderButtons(){
     return(
-        <div className="flex gap-2">
+        <div className="flex gap-2 text-sm">
             <button className="rounded-full hidden lg:grid bg-white text-black h-8 place-content-center py-1 px-4 font-bold hover:scale-105">
                 Explorar Premium
             </button>
@@ -32,7 +32,7 @@ export default function HeaderButtons(){
                 <Bell/>
             </button>
             <button className="rounded-full bg-black/50 w-8 h-8 grid place-content-center hover:scale-105">
-                <div className="rounded-full bg-green-500 h-6 font-bold w-6 text-black">N</div>
+                <div className="rounded-full bg-green-500 h-6 font-bold w-6 text-black grid place-content-center">N</div>
             </button>
         </div>
     )
