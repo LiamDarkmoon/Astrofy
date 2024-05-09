@@ -32,31 +32,6 @@ export default function Player() {
     const { volume, currentMusic, isPlaying, setIsPlaying } = usePlayerStore(state => state)
     const audioRef = useRef<HTMLAudioElement>(null)
 
-    useEffect(() => {
-        isPlaying
-        ? audioRef.current?.play()
-        : audioRef.current?.pause()
-    },[isPlaying])
-
-    useEffect(() => {
-        if(audioRef.current) {
-            audioRef.current.volume = volume
-        }
-    },[volume])
-
-    useEffect(() => {
-        const { song, playlist, songs } = currentMusic
-        if(song && audioRef.current) {
-            const src = `/music/${playlist?.id}/0${song.id}.mp3`
-            audioRef.current.src = src
-            audioRef.current.play()
-        }
-    },[currentMusic])
-
-    const handleClick = () => {
-        setIsPlaying(!isPlaying)
-    }
-
     return (
         <div className="flex justify-between items-center h-[72px] w-full z-50">
             <CurrentSong image={currentMusic.song?.image} title={currentMusic.song?.title} artists={currentMusic.song?.artists.join(', ')}/>

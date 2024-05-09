@@ -1,11 +1,9 @@
-import { usePlayerStore } from "@/store/playerStore";
 import { Slider } from './Slider';
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { formatTime } from "@/lib/utils";
 import PlayerControlButtons from "./PlayerControlButtons";
 
 export default function VolumeControl( { audio } : {audio: React.RefObject<HTMLAudioElement>}) {
-    const { isPlaying, setIsPlaying, currentMusic } = usePlayerStore()
     const [currentTime, setCurrentTime] = useState(0)
     
     useEffect(() => {
@@ -27,7 +25,7 @@ export default function VolumeControl( { audio } : {audio: React.RefObject<HTMLA
 
     return (
         <div className="flex flex-col items-center w-[40%] max-w-[722px] gap-2 text-xs">
-            <PlayerControlButtons/>
+            <PlayerControlButtons audio={ audio }/>
             <div className="flex w-full gap-2">
                 <span className="opacity-50 w-10 text-right">{ formatTime(currentTime) }</span>
                 <Slider

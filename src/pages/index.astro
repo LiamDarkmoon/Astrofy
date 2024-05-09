@@ -2,12 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import LastPlayedCards from '@/components/LastPlayedCards.astro';
 import MainCardsGroup from '@/components/MainCardsGroup.astro';
+
 ---
 
 <Layout title="Astrofy">
 	<div 
 		id="playlist-container"
-		class="relative px-5 pt-2 flex flex-col gap-6 transition-all duration-1000 bg-zinc-500"
+		class="relative  h-full px-5 pt-2 flex flex-col gap-6 transition-all duration-1000 bg-zinc-500"
 	>
 		<LastPlayedCards/>
 		<MainCardsGroup/>

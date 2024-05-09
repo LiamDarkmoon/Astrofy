@@ -1,3 +1,4 @@
+import AddButton from '@/components/buttons/AddButton'
 
 export default function CurrentSong({ image, title, artists } : { image: string | undefined, title: string | undefined, artists: string | undefined  }) {
   return (
@@ -24,6 +25,7 @@ export default function CurrentSong({ image, title, artists } : { image: string 
                 { artists }
             </span>
         </div>
+        <AddButton/>
     </div>
   )
 }

@@ -14,7 +14,8 @@ const artistsString = artists.join(', ')
 <article class="group relative w-full h-[257px] rounded-md hover:bg-zinc-600/40 hover:shadow-xl transition-all duration-300">
 
     <div 
-        class="absolute z-[2] right-5 bottom-[100px] translate-y-4 transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:translate-y-0"
+        class="absolute z-[2] right-5 bottom-[100px] translate-y-4 
+        transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 aria-selected:opacity-100"
     >
         <CardPlayButton id={id} size='medium' client:visible/>
     </div>

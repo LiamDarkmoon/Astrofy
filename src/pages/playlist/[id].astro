@@ -18,9 +18,9 @@ console.log()
 		class="relative flex flex-col h-full bg-zinc-900 overflow-x-hidden no-scrollbar"
         transition:name=`playlisy ${id} box`
 	>
-    <div  style={{backgroundColor: playlist?.color.accent}} class='absolute bottom-0 h-full inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/60 -z-10'/>
+    <div  style={{backgroundColor: playlist?.color.accent}} class='absolute bottom-0 h-full inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/60 z-[1]'/>
         <header style={{backgroundColor: playlist?.color.accent}} 
-        class={`flex flex-row gap-8 px-6 pb-6 h-[45vh] max-h[400px] pt-5 bg-gradient-to-t from-zinc-900/60 via-zinc-900/20`}
+        class={`relative z-10 flex flex-row gap-8 px-6 pb-6 h-[45vh] max-h[400px] pt-5 bg-gradient-to-t from-zinc-900/60 via-zinc-900/20`}
         >
             <picture class="aspect-square w-[15vw] min-w-[128px] h-auto min-h-[128px] flex-none">
                 <img
