@@ -13,7 +13,4 @@ export default defineConfig({
     edgeMiddleware: true,
     imageService: true
   }),
-  middleware: [
-    './src/middleware.js'
-  ],
 });
