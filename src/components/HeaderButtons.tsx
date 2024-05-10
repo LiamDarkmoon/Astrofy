@@ -1,3 +1,6 @@
+import Button from "./Button"
+import  { signIn, signOut } from "auth-astro/client"
+
 const Bell = () => (
     <svg
     role="img"
@@ -28,12 +31,15 @@ export default function HeaderButtons(){
                     Instalar aplicacion
                 </span>
             </button>
-            <button className="rounded-full bg-black/50 w-8 h-8 grid place-content-center hover:scale-105">
+            <Button className="rounded-full bg-black/50 hover:scale-105">
                 <Bell/>
-            </button>
-            <button className="rounded-full bg-black/50 w-8 h-8 grid place-content-center hover:scale-105">
+            </Button>
+            <Button
+                onClick={ signIn } 
+                className="rounded-full bg-black/50 hover:scale-105"
+            >
                 <div className="rounded-full bg-green-500 h-6 font-bold w-6 text-black grid place-content-center">N</div>
-            </button>
+            </Button>
         </div>
     )
 }

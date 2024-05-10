@@ -14,15 +14,17 @@ const playlist = allPlaylists.find(playlist => playlist.id === id);
 </header>
 
 <style>
-    @keyframes ajust-Header {
+    @keyframes ajust {
         to {
-            background-filter:blur(5px)
+            background-color: darkgreen;
+            filter: blur(10px)
         }
     }
-
+    
 	header {
+        animation-name: ajust;
         animation-timeline: scroll();
-        animation-range: 50px 250px;
-        animation: ajust-Header linear both;
+        animation-range: 0vh 100px;
+        animation-timing-function: linear;
 	}
 </style>
