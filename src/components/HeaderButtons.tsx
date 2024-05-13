@@ -19,7 +19,15 @@ const ArrowDown = () => (
     <svg fill="currentcolor" role="img" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path d="M4.995 8.745a.75.75 0 0 1 1.06 0L7.25 9.939V4a.75.75 0 0 1 1.5 0v5.94l1.195-1.195a.75.75 0 1 1 1.06 1.06L8 12.811l-.528-.528a.945.945 0 0 1-.005-.005L4.995 9.805a.75.75 0 0 1 0-1.06z"></path><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"></path></svg>
 )
 
-export default function HeaderButtons(){
+interface Session {
+        user: {
+            name: string,
+            email: string
+        }
+        expires: string,
+}
+
+export default function HeaderButtons({ session }: { session: any }){
     return(
         <div className="flex gap-2 text-sm">
             <button className="rounded-full hidden lg:grid bg-white text-black h-8 place-content-center py-1 px-4 font-bold hover:scale-105">
@@ -35,10 +43,10 @@ export default function HeaderButtons(){
                 <Bell/>
             </Button>
             <Button
-                onClick={ signIn } 
+                onClick={ session ? signOut : signIn } 
                 className="rounded-full bg-black/50 hover:scale-105"
             >
-                <div className="rounded-full bg-green-500 h-6 font-bold w-6 text-black grid place-content-center">N</div>
+                <div className="rounded-full bg-green-500 h-6 font-bold w-6 text-black grid place-content-center">{ session ? session.user.name.charAt(0) : "?" }</div>
             </Button>
         </div>
     )

@@ -1,13 +1,14 @@
 ---
 import { playlists } from '@/lib/data';
 import PlaylistItemCard from '@/components/PlaylistItemCard.astro';
-import Greetings from '@/components/Greetings.svelte';
-import WidthObserver from './WidthObserver';
+import Greetings from '@/components/Greetings.astro';
 ---
 
 <section  class="relative z-10 min-h-[200px]">
-    <Greetings/>
-    <WidthObserver client:visible/>
+    <div class="flex justify-between items-center">
+        <Greetings/>
+        <a class="text-sm font-semibold opacity-70 hover:opacity-100 transition duration-300" href="#">Mostrar todo</a>
+    </div>
     <div id="cardGroup" class="cards-group">
         { playlists.map(playlist => <PlaylistItemCard playlist={playlist} />) }
     </div>

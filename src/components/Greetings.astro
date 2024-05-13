@@ -1,0 +1,7 @@
+---
+import { getSession } from 'auth-astro/server';
+
+const session = await getSession(Astro.request);
+---
+
+<h1 class="text-2xl font-bold">{ session ? `Hecho para ${ session?.user?.name }` : 'Hecho para ti' }</h1>

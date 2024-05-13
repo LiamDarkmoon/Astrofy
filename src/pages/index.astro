@@ -10,7 +10,7 @@ const { page } = Astro.props
 <Layout title="Astrofy">
 	<div 
 		id="playlist-container"
-		class="relative  h-full px-5 pt-2 flex flex-col gap-6 transition-all duration-1000 bg-zinc-500"
+		class="relative min-w-[450px] h-full px-5 pt-2 flex flex-col gap-6 transition-all duration-1000 bg-zinc-500"
 	>
 		<LastPlayedCards/>
 		<MainCardsGroup/>
@@ -20,5 +20,7 @@ const { page } = Astro.props
 </Layout>
 
 <style>
-	
+	#playlist-container {
+		resize: horizontal;
+	}
 </style>

@@ -27,35 +27,21 @@ const ArrowLeft = () => (
 )
 
 export default function HeaderNavigation({ id } : { id: string | undefined }){
-    const [prevPage, setPrevPage] = useState<string>();
-    const [nextPage, setNextPage] = useState<string>();
-
-    useEffect(() => {
-        if(id){
-            const idNumber = parseInt(id);
-            
-            const prev = idNumber - 1 > 0 ? `/playlist/${idNumber - 1}` : '/';
-            const next = idNumber < 5 ? `/playlist/${idNumber + 1}` : `/playlist/5`;
-            
-            setPrevPage(prev);
-            setNextPage(next);
-        } else setNextPage('/playlist/1')
-    }, [id])
 
     return(
         <div className="flex gap-2">
-            <a  
+            <button  
                 className={ id ? "rounded-full bg-black/60 w-8 h-8 grid place-content-center cursor-pointer" : "rounded-full bg-black/30 w-8 h-8 grid place-content-center cursor-not-allowed" }
-                href={ prevPage }
+                onClick={ () => window.history.back() }
             >
                 <ArrowLeft/>
-            </a>
-            <a 
+            </button>
+            <button 
                 className={ id === '5' ? "rounded-full bg-black/30 w-8 h-8 grid place-content-center cursor-not-allowed" : "rounded-full bg-black/60 w-8 h-8 grid place-content-center cursor-pointer" }
-                href={ nextPage }
+                onClick={ () => window.history.forward() }
             >
                 <ArrowRight/>
-            </a>
+            </button>
         </div>
     )
 }

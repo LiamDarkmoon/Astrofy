@@ -4,12 +4,12 @@ import CardPlayButton from "./CardPlayButton";
 import Equalicer from "./Equalicer";
 ---
 
-<section class="last-played-cards relative z-10 min-h-12 mb-4">
+<section class="last-played-cards relative z-10 mb-4">
     { playlists.slice(0, 4).map((playlist) => (
         <article class="playlist-item group flex relative overflow-hidden items-center gap-2 rounded-md bg-zinc-400/20 hover:bg-zinc-400/40 transition duration-300">
             <a 
                 href={`/playlist/${playlist.id}`}
-                class="relative w-full flex overflow-hidden items-center gap-3 rounded-md"
+                class="relative w-full min-h-12 flex overflow-hidden items-center gap-3 rounded-md"
             >
                 <picture class="h-12 w-12 flex-none">
                     <img
